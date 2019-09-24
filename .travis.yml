@@ -6,4 +6,5 @@ before_install:
 - docker pull tonyodell/rakudo-nightly
 
 script:
+- docker image ls
 - docker run zef test .
