@@ -7,4 +7,4 @@ before_install:
 
 script:
 - ls
-- docker run tonyodell/rakudo-nightly:latest zef test p6-bench
+- docker run tonyodell/rakudo-nightly:latest zef test bench

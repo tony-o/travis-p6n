@@ -1,0 +1,12 @@
+{
+  "perl" : "6.*",
+  "name" : "Bench",
+  "version" : "0.2.0",
+  "auth" : "github:tony-o",
+  "description" : "Perl6's premier benchmarking utility",
+  "depends" : [""],
+  "provides" : {
+      "Bench": "lib/Bench.pm6"
+  },
+  "source-url" : "git://github.com/tony-o/perl6-bench.git"
+}
