@@ -8,7 +8,7 @@ before_install:
 script:
 - docker run
   -v $(pwd):/tmp/test:rw
-  -w $(pwd)
+  -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
   bash -c 'zef install -v --deps-only . && zef test .'
