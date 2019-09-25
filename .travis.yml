@@ -19,7 +19,7 @@ script:
   bash -c 'echo $HOME'
 - docker run
   -v $(pwd):/tmp/test:rw
-  -v $(pwd):/root:rw
+  -u $(stat -c "%u:%g" /root)
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
