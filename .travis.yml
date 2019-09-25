@@ -16,4 +16,4 @@ script:
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'ls /; ls /root; ls /root/.zef; ls /root/.zef/store; mkdir -p /root/.zef; chmod -R 777 /root/.zef; zef update; zef install -v --deps-only . && zef test .'
+  bash -c 'ls -l /root; echo "/root/.zef"; ls -l /root/.zef; ls /root/.zef/store; mkdir -p /root/.zef; chmod -R 777 /root/.zef; zef update; zef install -v --deps-only . && zef test .'
