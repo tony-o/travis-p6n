@@ -1,5 +1,5 @@
 my $use-telemetry = True;
-use ACME::Cow;
+use Acme::Cow;
 (try require ::('Telemetry') <&infix:<->>) === Nil and $use-telemetry = False;
 
 sub get-now(Bool $no-telemetry = False) {

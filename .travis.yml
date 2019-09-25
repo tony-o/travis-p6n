@@ -10,4 +10,4 @@ script:
   -v
   $(pwd):/tmp/test:rw
   tonyodell/rakudo-nightly:latest
-  bash -c 'cd /tmp/test && zef install --deps-only . && zef test .'
+  bash -c 'cd /tmp/test; zef install --deps-only . && zef test .'
