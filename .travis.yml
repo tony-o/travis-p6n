@@ -2,13 +2,19 @@ language: minimal
 
 services: docker
 
+addons:
+  apt:
+    packages:
+      
+
 before_install:
 - docker pull tonyodell/rakudo-nightly:latest
 
 script:
+- curl -V
 - docker run
   -v $(pwd):/tmp/test:rw
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'zef install -v --deps-only . && zef test .'
+  bash -c 'zef update && zef install -v --deps-only . && zef test .'
