@@ -6,8 +6,8 @@ before_install:
 - docker pull tonyodell/rakudo-nightly:latest
 
 script:
+- mkdir ../temp-cur
 - docker run
-  -v
-  $(pwd):/tmp/test:rw
+  -v $(pwd):/tmp/test:rw
   tonyodell/rakudo-nightly:latest
-  bash -c 'cd /tmp/test; zef install --deps-only --install-to ../cur . && zef test .'
+  bash -c 'cd /tmp/test; zef install --deps-only --install-to . . && zef test .'
