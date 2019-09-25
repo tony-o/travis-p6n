@@ -11,16 +11,11 @@ before_install:
 - docker pull tonyodell/rakudo-nightly:latest
 
 script:
+- mkdir -p ../zef/store
 - docker run
   -v $(pwd):/tmp/test:rw
+  -v $(pwd)/../zef:/root/.zef
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'echo $HOME'
-- docker run
-  -v $(pwd):/tmp/test:rw
-  -u $(stat -c "%u:%g" /root)
-  -w /tmp/test
-  --privileged
-  tonyodell/rakudo-nightly:latest
-  bash -c 'chmod -R 777 $HOME/.zef; zef update; zef install -v --deps-only . && zef test .'
+  bash -c 'chmod -R 777 /root/.zef; zef update; zef install -v --deps-only . && zef test .'
