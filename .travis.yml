@@ -16,7 +16,7 @@ script:
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'zef -h'
+  bash -c 'cat /usr/local/share/perl6/site/resources/9162F761C203DC8681B8BB55BC7A146CB8350159.json'
 - docker run
   -v $(pwd):/tmp/test:rw
   -w /tmp/test
