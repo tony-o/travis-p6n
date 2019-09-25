@@ -2,6 +2,8 @@ language: minimal
 
 services: docker
 
+sudo: true
+
 before_install:
 - docker pull tonyodell/rakudo-nightly:latest
 
