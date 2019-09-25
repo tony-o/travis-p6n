@@ -6,14 +6,9 @@ before_install:
 - docker pull tonyodell/rakudo-nightly:latest
 
 script:
-- mkdir -p ../zef/store
-- curl -o ../zef/store/cpan1.json https://raw.githubusercontent.com/ugexe/Perl6-ecosystems/master/cpan1.json
-- curl -o ../zef/store/p6c1.json https://raw.githubusercontent.com/ugexe/Perl6-ecosystems/master/p6c1.json
 - docker run
   -v $(pwd):/tmp/test:rw
-  -v $(pwd)../zef/store:/root/.zef/store:rw
-  -u root
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'echo "/root/.zef"; ls -l /root/.zef/; echo "store"; ls -l /root/.zef/store/; zef install -v --deps-only . && zef test .'
+  bash -c 'zef install -v --config-path=/tmp/test/.travis.json --deps-only . && zef test --config-path=/tmp/test/.travis.json .'
