@@ -12,4 +12,4 @@ script:
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'apt update; apt install -y ca-certificates; curl -v -o /tmp/.zef/store/cpan1.json https://raw.githubusercontent.com/ugexe/Perl6-ecosystems/master/cpan1.json; zef install -v --config-path=/tmp/test/.travis.json --deps-only . && zef test --config-path=/tmp/test/.travis.json .'
+  bash -c 'apt update; apt install -y ca-certificates; zef install -v --deps-only . && zef test .'
