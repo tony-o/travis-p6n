@@ -2,11 +2,6 @@ language: minimal
 
 services: docker
 
-addons:
-  apt:
-    packages:
-      
-
 before_install:
 - docker pull tonyodell/rakudo-nightly:latest
 
@@ -14,7 +9,7 @@ script:
 - mkdir -p ../zef/store
 - docker run
   -v $(pwd):/tmp/test:rw
-  -v $(pwd)/../zef:/root/.zef
+  -u root
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
