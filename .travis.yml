@@ -23,4 +23,4 @@ script:
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'zef update && zef install -v --deps-only . && zef test .'
+  bash -c 'chmod -R 777 $HOME/.zef; zef update; zef install -v --deps-only . && zef test .'
