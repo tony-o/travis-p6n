@@ -2,8 +2,6 @@ language: minimal
 
 services: docker
 
-sudo: true
-
 before_install:
 - docker pull tonyodell/rakudo-nightly:latest
 
@@ -14,4 +12,4 @@ script:
   -w /tmp/test
   --privileged
   tonyodell/rakudo-nightly:latest
-  bash -c 'curl -v -o /tmp/.zef/store/cpan1.json https://raw.githubusercontent.com/ugexe/Perl6-ecosystems/master/cpan1.json; zef install -v --config-path=/tmp/test/.travis.json --deps-only . && zef test --config-path=/tmp/test/.travis.json .'
+  bash -c 'ls -l /etc/ssl/certs/; curl -v -o /tmp/.zef/store/cpan1.json https://raw.githubusercontent.com/ugexe/Perl6-ecosystems/master/cpan1.json; zef install -v --config-path=/tmp/test/.travis.json --deps-only . && zef test --config-path=/tmp/test/.travis.json .'
